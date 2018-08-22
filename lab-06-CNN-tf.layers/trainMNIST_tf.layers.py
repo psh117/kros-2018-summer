@@ -63,10 +63,10 @@ y2 = tf.layers.conv2d(y1, filters=20, kernel_size=[5, 5], kernel_initializer=wei
 y3 = tf.layers.average_pooling2d(y2, pool_size=[2, 2], strides=[2, 2], padding='same')
 
 # Layer 5 (Flatten): L4 (10x10x20) --> L5 (2000)
-y4 = input here
+y4 = tf.layers.flatten(y3)
 
 # Layer 6 (Fully-connected), W3 (2000x300): L5 (2000) --> L6 (300)
-y5 = input here
+y5 =  tf.layers.dense(y4, 300, kernel_initializer=weight_initializer, activation=tf.nn.relu)
 
 # Layer 7 (Fully-connected for Output), Wo (300x10): L6 (300) --> L7 (10)
 v = tf.layers.dense(y5, n_classes, kernel_initializer=weight_initializer, activation=None)

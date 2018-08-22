@@ -66,10 +66,10 @@ with slim.arg_scope(
     y3 = slim.avg_pool2d(y2, 2, scope='avg_pool_3')
 
     # Layer 5 (Flatten): L4 (10x10x20) --> L5 (2000)
-    y4 = input here
+    y4 = tf.layers.flatten(y3)
 
     # Layer 6 (Fully-connected), W3 (2000x300): L5 (2000) --> L6 (300)
-    y5 =  input here
+    y5 = slim.fully_connected(y4, 300, scope='fc_5')
 
     # Layer 7 (Fully-connected for Output), Wo (300x10): L6 (300) --> L7 (10)
     v = slim.fully_connected(y5, n_classes, activation_fn=None, scope='fc_6')
