@@ -186,10 +186,10 @@ def Conv(x, W):
 
     for k in range(numFilters):
         filters = W[:, :, :, k]
-        filters = What is the filter?
+        filters = np.rot90(filters,k=2, axes=(0,1))
 
         for c in range(numChans):
-            y[:, :, k] = y[:, :, k]+ How to update it?
+            y[:, :, k] = y[:, :, k]+sp.convolve2d(x[:,:,c], filters[:,:,c], 'valid')
 
     return y
 

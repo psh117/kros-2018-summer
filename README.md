@@ -20,6 +20,15 @@
 - opencv-python
 
 #### Package download for Windows + python 3.6
+
+환경 변수
+C:\Users\{user}\AppData\Local\Programs\Python\Python36
+C:\Users\{user}\AppData\Local\Programs\Python\Python36\Scripts
+C:\Users\{user}\AppData\Local\Programs\Python\Python36\Library\bin
+```
+pip install numpy
+pip install 
+```
 1. [여기](https://drive.google.com/open?id=1k707gyg--Lb_0uTTmBp7_BsllWR8gofH) 에서 .whl 파일 5개 다운로드  
 2. win+R -> cmd 를 입력하여 명령 프롬프트 창을 연다.  
 3. ``` pip install ".whl파일 다운로드 경로"  ```   

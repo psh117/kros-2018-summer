@@ -27,7 +27,7 @@ def NN(X,W1,W2):
 def Backprop(W1, W2, X, D):
 
     alpha = 0.05  # 0.3
-    datanum, dim = X.shape;
+    datanum, dim = X.shape
 
     for k in range(datanum):
         x = np.array(X[k, :], ndmin=2).T
