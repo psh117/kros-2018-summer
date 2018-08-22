@@ -35,7 +35,6 @@ def quadprogSVM(K, Y, C):
 
     # x = cvxopt.solvers.qp(H,f,A,b,Aeq,beq) returns a vector x that
     #
-    # minimizes 1/2*x'*H*x + f'*x
     #       subject to
     #           A⋅x<=b,
     #           Aeq⋅x=beq,
