@@ -66,9 +66,9 @@ y3 = tf.nn.avg_pool(y2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME'
 y4 = tf.reshape(y3, [-1, 10*10*20])
 
 # Layer 6 (Fully-connected), W3 (2000x300): L5 (2000) --> L6 (300)
-W3 = input here
-v5 = input here
-y5 = input here
+W3 = tf.Variable(tf.random_uniform([2000,300], -0.01, 0.01),name='W3')
+v5 = tf.matmul(y4,W3)
+y5 = tf.nn.relu(v5)
 
 # Layer 7 (Fully-connected for Output), Wo (300x10): L6 (300) --> L7 (10)
 Wo = tf.Variable(tf.random_uniform([300, n_classes], -0.01, 0.01), name="Wo")
