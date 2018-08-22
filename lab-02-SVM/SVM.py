@@ -36,14 +36,14 @@ def quadprogSVM(K, Y, C):
     # x = cvxopt.solvers.qp(H,f,A,b,Aeq,beq) returns a vector x that
     #
     #       subject to
-    #           Axb,
-    #           Aeqx=beq,
+    #           A⋅x<=b,
+    #           Aeq⋅x=beq,
 
     (datanum,_) = Y.shape
-    H =
-    f =
-    A =
-    b =
+    H = matrix(np.matmul(Y,Y.T)*K, tc='d')
+    f = -matrix(np.ones([datanum, 1]), tc='d')
+    A = matrix(np.row_stack((-np.eye(datanum), np.eye(datanum))), tc='d')
+    b = matrix(np.row_stack((np.zeros([datanum, 1]),C*np.ones([datanum, 1]))))
     Aeq = matrix(Y.T, tc='d')
     beq = matrix(0, tc='d')
     sol = solvers.qp(H, f, A, b, Aeq, beq)
