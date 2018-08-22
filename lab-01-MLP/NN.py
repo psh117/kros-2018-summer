@@ -42,7 +42,13 @@ def Backprop(W1, W2, X, D):
 
         # NN backward
 
-            input here
+        e = d - y
+        delta = y  * (1 - y) * e
+        
+        e1 = np.matmul(W2.T, delta)
+        delta1 = y1 * (1 - y1) * e1
+
+        #    input here
 
         dW1 = alpha * np.matmul(delta1, x.T)  # delta rule
         W1 = W1 + dW1
@@ -60,3 +66,4 @@ def Sigmoid(x):
 
     #return 1.0 / (1.0 + np.exp(-x))
     return np.exp(-np.logaddexp(0, -x))
+
